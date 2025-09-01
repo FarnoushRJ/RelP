@@ -258,7 +258,7 @@ class AbstractAttention(ABC, nn.Module):
         attn_scores = self.hook_attn_scores(attn_scores)
 
         pattern = F.softmax(attn_scores, dim=-1)
-        
+
         if self.cfg.use_lrp and 'AH-rule' in self.cfg.LRP_rules:
             pattern = pattern.detach()
         

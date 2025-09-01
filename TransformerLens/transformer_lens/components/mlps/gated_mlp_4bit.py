@@ -47,6 +47,7 @@ class GatedMLP4Bit(CanBeUsedAsMLP):
         self.hook_pre_linear = HookPoint()  # [batch, pos, d_mlp]
         # hook on act_fn(gate_output) * W_in(x) + b_in
         self.hook_post = HookPoint()  # [batch, pos, d_mlp]
+        self.cfg = cfg
 
     def forward(
         self, x: Float[torch.Tensor, "batch pos d_model"]

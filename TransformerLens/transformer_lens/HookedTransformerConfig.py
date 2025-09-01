@@ -262,8 +262,8 @@ class HookedTransformerConfig:
     NTK_by_parts_low_freq_factor: float = 1.0
     NTK_by_parts_high_freq_factor: float = 4.0
     NTK_by_parts_factor: float = 8.0
-    use_lrp = True
-    LRP_rules = ['LN-rule', 'AH-rule', 'Identity-rule', 'Half-rule']
+    use_lrp: bool = False
+    LRP_rules = ['LN-rule', 'Identity-rule', 'Half-rule']
 
     def __post_init__(self):
         if self.n_heads == -1:

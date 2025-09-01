@@ -2,7 +2,7 @@
     <img src='assets/RelP_logo.jpeg', width='400'>
 </p>
 <p align="center">
-    <b>Faithful and Efficient Circuit Discovery via Relevance Patching</b>
+    <b><a href="https://arxiv.org/abs/2508.21258">Faithful and Efficient Circuit Discovery via Relevance Patching</a></b>
 </p>
 
 ## 🔖 Overview
@@ -14,8 +14,8 @@
 
 ```shell
 git clone https://github.com/FarnoushRJ/RelP.git
-cd RelP
-pip install -e ./TransformerLens
+cd RelP/TransformerLens
+pip install -e .
 ```
 
 ### 🚀 Use
@@ -25,6 +25,8 @@ import transformer_lens
 
 # Load a model (eg GPT-2 Small)
 model = transformer_lens.HookedTransformer.from_pretrained("gpt2-small")
+model.cfg.use_lrp = True  # Use LRP
+model.cfg.LRP_rules = ['LN-rule', 'Identity-rule', 'Half-rule']  # LRP rules to be used
 
 # Run the model and get logits and activations
 logits, activations = model.run_with_cache("Hello World")
@@ -48,4 +50,17 @@ We build on the [TransformerLens](https://github.com/TransformerLensOrg/Transfor
 
 ## 🔎 License
 This project is distributed under the Apache 2.0 License. It incorporates code and models from third-party sources, which are provided under their own licenses. Please review those licenses before use.
+
+## Citation
+```BibTeX
+@misc{jafari2025relp,
+      title={RelP: Faithful and Efficient Circuit Discovery via Relevance Patching}, 
+      author={Farnoush Rezaei Jafari and Oliver Eberle and Ashkan Khakzar and Neel Nanda},
+      year={2025},
+      eprint={2508.21258},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2508.21258}, 
+}
+```
 
